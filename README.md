@@ -8,9 +8,7 @@
 * View images in a scrapbook layout to preserve travel memories.
 
 **Website created using:**
-Front-End:
-* HTML, CSS, JavaScript, Bootstrap
-**Backend/User Authentication:**
-* CryptoJS, Firebase
+* **Front-End:** HTML, CSS, JavaScript, Bootstrap
+* **Backend/User Authentication:** CryptoJS, Firebase
 
 **View site here:** https://yashie27.github.io/travel-diaries/
