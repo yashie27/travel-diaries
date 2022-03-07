@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Collage</title>
+    <style>
+      .hoverwrap {
+        position: relative;
+        max-width: 500px;
+      }
+
+      .hoverwrap img { width: 100%; }
+
+      .hovercap {
+
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      .hovercap {
+        visibility: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .hoverwrap:hover .hovercap {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Travel Diaries</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="diaries.html">My Diaries</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="bucketList.html">Bucket List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="explore.html">Explore</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="collage.html">Collage<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item mx-1">
+                  <a id="userlink" class="nav-link" href="">Username</a>
+                </li>
+
+                <li class="nav-item mx-1">
+                    <a id="signoutlink" class="nav-link" href="">Sign Out</a>
+                  </li>
+
+              </ul>
+
+          </form>
+        </div>
+      </nav>
+
+      <div style="padding-top: 50px; padding-right: 30px; padding-bottom: 50px; padding-left: 80px;">
+
+        <div class="container-fluid pb-5 portfolio-text">
+          <div class="row">
+             <div class="col-md-7 offset-md-3 col-sm-12">
+                <h2>Collage</h2>
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-7 offset-md-3 col-sm-12">
+                 A scrapbook for your memories.
+             </div>
+          </div>
+
+          <br/>
+          <div class="row offset-md-2 col-sm-12"> 
+            <table style="width:70%">
+                <tr>
+                    <td><a href="collage-pics/postcard-2.jpg">
+                      <div class="hoverwrap">
+                        <img src="collage-pics/postcard-2.jpg" style="width: 90%">
+                        <div class="hovercap">Postcard from Spain</div>
+                      </div>
+                    </a></td>
+                    <td><a href="collage-pics/polaroids.jpg">
+                      <div class="hoverwrap">
+                        <img src="collage-pics/polaroids.jpg" style="width: 90%">
+                        <div class="hovercap">My 22nd Birthday</div>
+                      </div>
+                      </a></td>
+                    <td><a href="collage-pics/polaroid.png">
+                      <div class="hoverwrap">
+                        <img src="collage-pics/polaroid.png" style="width: 90%">
+                        <div class="hovercap">Polaroid of Venice</div>
+                      </div>
+                      </a></td>
+                </tr>
+                <tr>
+                    <td><a href="collage-pics/collage-1.png">
+                      <div class="hoverwrap">
+                        <img src="collage-pics/collage-1.png" style="width:200%">
+                        <div class="hovercap">A Summer to Remember</div>
+                      </div>
+                      </a></td>
+                    <td></td>
+                    <td><a href="collage-pics/postcard.png">
+                      <div class="hoverwrap">
+                        <img src="collage-pics/postcard.png" style="width:90%">
+                        <div class="hovercap">Postcard from Edinburgh</div>
+                      </div>
+                      </a></td> 
+                </tr>
+              </table>
+       </div>
+
+      <script>
+        let userlink = document.getElementById('userlink');
+        let signoutlink = document.getElementById('signoutlink');
+        let header = document.getElementById('hh');
+        var currentUser = null;
+
+        function getUsername() {
+            let keepedLoggedIn = localStorage.getItem("keepLoggedIn");
+
+            if (keepedLoggedIn == "yes") {
+                currentUser = JSON.parse(localStorage.getItem('user'));
+            }
+            else {
+                currentUser = JSON.parse(sessionStorage.getItem('user'));
+            }
+        }
+
+        function Signout() {
+            sessionStorage.removeItem('user');
+            localStorage.removeItem('user');
+            localStorage.removeItem('keepLoggedIn');
+            window.location = "home.html";
+        }
+
+        window.onload = function() {
+            getUsername();
+            if (currentUser == null) {
+                userlink.innerText = "Create New Account";
+                userlink.classList.replace("nav-link", "btn");
+                userlink.classList.add("btn-primary");
+                userlink.href = "register.html";
+
+                signoutlink.innerText = "Login";
+                signoutlink.classList.replace("nav-link", "btn");
+                signoutlink.classList.add("btn-success");
+                signoutlink.href = "login.html";
+            }
+            else {
+                userlink.innerText = currentUser.username;
+                userlink.classList.replace("btn", "nav-link");
+                userlink.classList.remove("btn-primary");
+                userlink.href = "#";
+
+                signoutlink.innerText = "Sign Out";
+                signoutlink.classList.replace("btn", "nav-link");
+                signoutlink.classList.remove("btn-success");
+                signoutlink.href = "javascript:Signout()";
+            }
+        }
+
+      </script>
+</body>
+</html>

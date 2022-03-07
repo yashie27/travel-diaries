@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>My Diaries</title>
+
+    <style>
+        button {
+            background-color: white;
+            border-width: 0px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Travel Diaries</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="diaries.html">My Diaries<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="bucketList.html">Bucket List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="explore.html">Explore</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="collage.html">Collage</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item mx-1">
+                  <a id="userlink" class="nav-link" href="">Username</a>
+                </li>
+                <li class="nav-item mx-1">
+                    <a id="signoutlink" class="nav-link" href="">Sign Out</a>
+                  </li>
+              </ul>
+          </form>
+        </div>
+      </nav>
+
+      <div style="padding-top: 50px; padding-right: 30px; padding-bottom: 50px; padding-left: 80px;">
+
+        <div class="container-fluid pb-5 portfolio-text">
+          <div class="row">
+             <div class="col-md-7 offset-md-3 col-sm-12">
+                <h2>My Diaries</h2>
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-7 offset-md-3 col-sm-12">
+                Keep track of your travel experiences.
+                <i class="bi bi-file-plus"></i>
+             </div>
+          </div>
+          <div class="col-md-7 offset-md-10 col-sm-12">
+        <button id="addEntry" onclick="addDiaryEntry();" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
+                <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+              </svg>
+        </button>
+          <button id="deleteEntry" onclick="deleteDiaryEntry();">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-journal-x" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6.146 6.146a.5.5 0 0 1 .708 0L8 7.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 8l1.147 1.146a.5.5 0 0 1-.708.708L8 8.707 6.854 9.854a.5.5 0 0 1-.708-.708L7.293 8 6.146 6.854a.5.5 0 0 1 0-.708z"/>
+                <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+              </svg>
+          </button>
+        </div>
+        <br/>
+       </div>
+
+       <div class="scrollblock">
+        <div class="container-fluid pt-10">
+           <div class="row justify-content-md-center ">
+              <div class="col-md-10 col-sm-12">
+                 <div class="card-columns" id= "diaryEntries">
+                    <div class="card card-hover h-100" >
+                       <div class="card-body">
+                           <h5>Oh Sweet Venice</h5>
+                           <p>I honestly feel like my time in Venice was something I will remember forever. It was so beautiful;
+                               I've never been to a more serene city. My favorite part was definitely the Grand Canal. 
+                               I hope I can return again one summer. </p>
+                       </div>
+                    </div>
+                    <div class="card card-hover h-100" >
+                       <div class="card-body">
+                        <h5>What Happens In Vegas...</h5>
+                        <p>Going to Vegas on my 21st birthday was definitely a night to remember. It was lively, colorful,
+                            and bustling with people and sounds. Not sure if I'd ever wanna go back, but I'm glad I got to
+                            experience it at least once in my life.
+                        </p>
+                       </div>
+                    </div>
+                    <div class="card card-hover h-100">
+                       <div class="card-body">
+                        <h5>Poconos Disaster</h5>
+                        <p>Went on a skiing trip this December with a group of my friends and it was... a nightmare to say the least.
+                            I've never done skiing before, but I didn't think it would be THAT difficult. I fell at least sixty-three
+                            times that day.
+                        </p>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+    </div>
+
+      <script>
+        let userlink = document.getElementById('userlink');
+        let signoutlink = document.getElementById('signoutlink');
+        let header = document.getElementById('hh');
+        var currentUser = null;
+
+        function getUsername() {
+            let keepedLoggedIn = localStorage.getItem("keepLoggedIn");
+
+            if (keepedLoggedIn == "yes") {
+                currentUser = JSON.parse(localStorage.getItem('user'));
+            }
+            else {
+                currentUser = JSON.parse(sessionStorage.getItem('user'));
+            }
+        }
+
+        function addDiaryEntry() {
+        var allEntries= document.getElementById("diaryEntries");
+
+        var titleInput= prompt("Enter diary entry title");
+        var contentInput = prompt("Enter diary entry contents");
+
+        if(titleInput!="" && contentInput!="") {
+            const largeDiv = document.createElement("div");
+            largeDiv.className = "card card-hover h-100";
+
+            const smallDiv = document.createElement("div");
+            smallDiv.className = "card-body";
+
+            const header = document.createElement("h5");
+            const para = document.createElement("p");
+
+            header.innerText = titleInput;
+            para.innerText = contentInput;
+
+            smallDiv.appendChild(header);
+            smallDiv.appendChild(para);
+
+            largeDiv.appendChild(smallDiv);
+
+            allEntries.appendChild(largeDiv);
+        }
+    }
+
+    function deleteDiaryEntry() {
+        var myNodelist = document.getElementsByClassName("card card-hover h-100")
+          var i;
+          for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+          }
+          
+          var close = document.getElementsByClassName("close");
+          var i;
+          for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+                if(confirm("Are you sure?")) {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+
+                    while(close.length > 0){
+                        close[0].parentNode.removeChild(close[0]);
+                    }
+                }
+            }
+          }
+    }
+
+        function Signout() {
+            sessionStorage.removeItem('user');
+            localStorage.removeItem('user');
+            localStorage.removeItem('keepLoggedIn');
+            window.location = "home.html";
+        }
+
+        window.onload = function() {
+            getUsername();
+            if (currentUser == null) {
+                userlink.innerText = "Create New Account";
+                userlink.classList.replace("nav-link", "btn");
+                userlink.classList.add("btn-primary");
+                userlink.href = "register.html";
+
+                signoutlink.innerText = "Login";
+                signoutlink.classList.replace("nav-link", "btn");
+                signoutlink.classList.add("btn-success");
+                signoutlink.href = "login.html";
+            }
+            else {
+                userlink.innerText = currentUser.username;
+                userlink.classList.replace("btn", "nav-link");
+                userlink.classList.remove("btn-primary");
+                userlink.href = "#";
+
+                signoutlink.innerText = "Sign Out";
+                signoutlink.classList.replace("btn", "nav-link");
+                signoutlink.classList.remove("btn-success");
+                signoutlink.href = "javascript:Signout()";
+            }
+        }
+
+      </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+body {
+    background-size: 40px 40px;
+    background-image:
+    linear-gradient(to right, #e6efff 1px, transparent 1px),
+    linear-gradient(to bottom, #e6efff 1px, transparent 1px);
+}
+
+img:hover {
+    filter:brightness(40%);
+}
+
+a {
+    color: black;
+ }
+
+a:hover {
+    text-decoration: none;
+    color: #91a4c4;
+}
